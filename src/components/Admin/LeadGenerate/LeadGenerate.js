@@ -5,8 +5,10 @@ import { CSVLink } from "react-csv";
 const LeadGenerate = () => {
   const [initialLeads, setInitialLeads] = useState([]);
   const [regenerate, setRegenerate] = useState([]);
+
   const [initialUpdateStatus, setInitialUpdateStatus] = useState(false);
   const [regenerateUpdateStatus, setRegenerateUpdateStatus] = useState(false);
+
   const [initialDate, setInitialDate] = useState("");
   const [regenDate, setRegenDate] = useState("");
 

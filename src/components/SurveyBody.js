@@ -310,6 +310,8 @@ const SurveyBody = () => {
               ((q3 === "derby" ||
                 q3 === "pilot" ||
                 q3 === "hollywood" ||
+                q3 === "k2" ||
+                q3 === "real" ||
                 q3 === "sheikh" ||
                 q3 === "royals" ||
                 q3 === "others") &&
