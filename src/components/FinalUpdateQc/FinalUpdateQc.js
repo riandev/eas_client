@@ -56,7 +56,7 @@ const FinalUpdateQc = ({ ansData, qcBy }) => {
     data.qcDate = new Date().toLocaleDateString();
     data.qcTime = new Date().toLocaleTimeString();
     console.log(data);
-    fetch(`http://192.168.10.11:5004/finalUpdate/${id}`, {
+    fetch(`http://localhost:5004/finalUpdate/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -65,7 +65,7 @@ const FinalUpdateQc = ({ ansData, qcBy }) => {
       .then((output) => {
         setStatus(output);
       });
-    fetch("http://192.168.10.11:5004/reportsData", {
+    fetch("http://localhost:5004/reportsData", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(finalData),

@@ -12,6 +12,9 @@ import AdminDashboard from "./components/Admin/AdminDashboard/AdminDashboard";
 import PrivateRouteAdmin from "./components/Admin/PrivateRouteAdmin/PrivateRouteAdmin";
 import AdminLogin from "./components/Admin/AdminLogin/AdminLogin";
 import AdminSignUp from "./components/Admin/AdminSignUp/AdminSignUp";
+import SummaryReport from "./components/Admin/SummaryReport/SummaryReport";
+import TerritorySplit from "./components/Admin/TerritorySplit/TerritorySplit";
+import SplitData from "./components/Admin/SplitData/SplitData";
 
 export const userContext = createContext();
 export const adminContext = createContext();
@@ -46,6 +49,36 @@ function App() {
             <Route exact path="/admin/addLead">
               <AdminDashboard></AdminDashboard>
             </Route>
+            <Route exact path="/admin/initialCalculations">
+              <AdminDashboard></AdminDashboard>
+            </Route>
+            <Route exact path="/admin/generateReport">
+              <AdminDashboard></AdminDashboard>
+            </Route>
+            <Route exact path="/admin/viewTmsTmr">
+              <AdminDashboard></AdminDashboard>
+            </Route>
+            <Route exact path="/admin/viewTerritory">
+              <AdminDashboard></AdminDashboard>
+            </Route>
+            <Route exact path="/admin/viewMinusTerritory">
+              <AdminDashboard></AdminDashboard>
+            </Route>
+            <Route exact path="/admin/viewPlusTerritory">
+              <AdminDashboard></AdminDashboard>
+            </Route>
+            <Route exact path="/admin/viewCombineTerritory">
+              <AdminDashboard></AdminDashboard>
+            </Route>
+            <Route exact path="/admin/viewSummaryReport">
+              <AdminDashboard></AdminDashboard>
+            </Route>
+            <Route exact path="/admin/viewSummaryReportSingle">
+              <SummaryReport></SummaryReport>
+            </Route>
+            <Route exact path="/admin/splitReport">
+              <TerritorySplit></TerritorySplit>
+            </Route>
             <Route exact path="/login">
               <Login></Login>
             </Route>
@@ -63,6 +96,9 @@ function App() {
             </Route>
             <Route exact path="/dashboard/report">
               <Reports></Reports>
+            </Route>
+            <Route exact path="/admin/split-data">
+              <SplitData></SplitData>
             </Route>
             <Route exact path="/dashboard/qc">
               <Qc></Qc>

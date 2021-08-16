@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 8px;
+  width: 100px;
+  border: 1px dotted black;
+}
+
+[role="row"] {
+  display: flex;
+}
+
+[role="columnheader"] {
+  font-weight: 700;
+}
+
+[role="columnheader"],
+[role="cell"] {
+  padding: 8px;
+  width: 100px;
+  border: 1px dotted black;
+}
+
+[aria-colspan="2"] {
+  width: 200px;
+}
+.image-design {
+  width: 90px;
+  height: 70px;
+}

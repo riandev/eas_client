@@ -7,7 +7,7 @@ const HomeBody = () => {
       <div className="login-page container">
         <div className="row align-items-center" style={{ height: "100vh" }}>
           <div className="col-md-6 shadow p-5">
-            <h4>Notice Board</h4>
+            <h2 style={{ color: "red" }}>AKTCL EAS_Tea_Stall</h2>
             <p>1. Login Before 9 AM</p>
             <p>2. Call Only Non Smokers</p>
           </div>
