@@ -19,6 +19,8 @@ const LeadGenerate = () => {
   const [regenleadId, setRegenLeadId] = useState(null);
   const [regenisActive, setRegenIsActive] = useState(null);
 
+  console.log(regenleadId, regenleadName, regenisActive);
+
   const [createStatus, setCreateStatus] = useState(false);
   const [createStatusReg, setCreateStatusReg] = useState(false);
 
@@ -82,7 +84,7 @@ const LeadGenerate = () => {
   };
 
   const handleRegenCRM = () => {
-    initialLeads.forEach((element) => {
+    regenerate.forEach((element) => {
       fetch(
         `http://192.168.1.70/vicidial/non_agent_api.php?source=test&user=admin&pass=F1f0t3ch&function=add_lead&phone_number=${element.Consumer_No}&phone_code=1&list_id=${regenleadId}&dnc_check=N&first_name=${element.r_name}&last_name=$l_name&address1=${element.data_date}&postal_code=${element.diid}&comments=sample`,
         {
@@ -300,7 +302,7 @@ const LeadGenerate = () => {
                 </Form.Group>
               </div>
               <button onClick={createRegenList} className="btn btn-success">
-                Create Lead
+                Create Regen Lead
               </button>
               <h5 className="mt-3">Regenerate Leads</h5>
               <input
