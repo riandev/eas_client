@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import { createContext } from "react";
 import { useState } from "react";
@@ -13,8 +13,13 @@ import PrivateRouteAdmin from "./components/Admin/PrivateRouteAdmin/PrivateRoute
 import AdminLogin from "./components/Admin/AdminLogin/AdminLogin";
 import AdminSignUp from "./components/Admin/AdminSignUp/AdminSignUp";
 import SummaryReport from "./components/Admin/SummaryReport/SummaryReport";
-import TerritorySplit from "./components/Admin/TerritorySplit/TerritorySplit";
 import SplitData from "./components/Admin/SplitData/SplitData";
+import ViewTmsTmrReport from "./components/Admin/ViewTmsTmrReport/ViewTmsTmrReport";
+import TerritoryMinusReport from "./components/Admin/TerritoryMinusReport/TerritoryMinusReport";
+import TerritoryPlusReport from "./components/Admin/TerritoryPlusReport/TerritoryPlusReport";
+import TerritoryCombineReport from "./components/Admin/TerritoryCombineReport/TerritoryCombineReport";
+import TerritoryCombineReportAll from "./components/Admin/TerritoryCombineReportAll/TerritoryCombineReportAll";
+import TmsTmrCombineReport from "./components/Admin/TmsTmrCombineReport/TmsTmrCombineReport";
 
 export const userContext = createContext();
 export const adminContext = createContext();
@@ -67,6 +72,30 @@ function App() {
             <Route exact path="/admin/viewPlusTerritory">
               <AdminDashboard></AdminDashboard>
             </Route>
+            <Route exact path="/admin/viewReports">
+              <AdminDashboard></AdminDashboard>
+            </Route>
+            <Route exact path="/admin/finalViewTMS">
+              <ViewTmsTmrReport></ViewTmsTmrReport>
+            </Route>
+            <Route exact path="/admin/finalViewTMSCombine">
+              <TmsTmrCombineReport></TmsTmrCombineReport>
+            </Route>
+            <Route exact path="/admin/finalViewMinus">
+              <TerritoryMinusReport></TerritoryMinusReport>
+            </Route>
+            <Route exact path="/admin/finalViewPlus">
+              <TerritoryPlusReport></TerritoryPlusReport>
+            </Route>
+            <Route exact path="/admin/finalViewCombine">
+              <TerritoryCombineReport></TerritoryCombineReport>
+            </Route>
+            <Route exact path="/admin/finalViewCombineAll">
+              <TerritoryCombineReportAll></TerritoryCombineReportAll>
+            </Route>
+            <Route exact path="/admin/finalViewSummary">
+              <SummaryReport></SummaryReport>
+            </Route>
             <Route exact path="/admin/viewCombineTerritory">
               <AdminDashboard></AdminDashboard>
             </Route>
@@ -77,7 +106,7 @@ function App() {
               <SummaryReport></SummaryReport>
             </Route>
             <Route exact path="/admin/splitReport">
-              <TerritorySplit></TerritorySplit>
+              <AdminDashboard></AdminDashboard>
             </Route>
             <Route exact path="/login">
               <Login></Login>

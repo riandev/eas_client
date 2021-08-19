@@ -3,13 +3,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import aktcl from "../../../images/aktcl.png";
 import fifotech from "../../../images/logo_s.png";
-import { Link } from "react-router-dom";
 
 const SummaryReport = () => {
   const [summary, setSummary] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5004/territoryCombineReport")
+    fetch("http://192.168.10.11:5004/territoryCombineReport")
       .then((res) => res.json())
       .then((data) => setSummary(data));
   }, []);
@@ -52,7 +51,7 @@ const SummaryReport = () => {
           <h6>Total Territory Count: {summary.length}</h6>
         </div>
         <div>
-          <h6>Date Of Call: {summary[0]?.callDate}</h6>
+          <h6>Date Of Call: {summary[1]?.callDate}</h6>
         </div>
       </div>
       <div className="text-center mt-3">

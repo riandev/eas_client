@@ -49,7 +49,9 @@ const ReportBoard = () => {
   console.log(finalPureNotContacted);
 
   const handleConnected = () => {
-    fetch("http://localhost:5004/updateConnectCall?reportDate=" + reportDate)
+    fetch(
+      "http://192.168.10.11:5004/updateConnectCall?reportDate=" + reportDate
+    )
       .then((res) => res.json())
       .then((data) =>
         setCondition1([
@@ -61,7 +63,7 @@ const ReportBoard = () => {
       );
   };
   const handleCondition1 = () => {
-    fetch("http://localhost:5004/update1", {
+    fetch("http://192.168.10.11:5004/update1", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(condition1),
@@ -70,14 +72,14 @@ const ReportBoard = () => {
       .then((data) => setStatus1(data));
   };
   const handleTrueContact = () => {
-    fetch("http://localhost:5004/getTrueContact?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/getTrueContact?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setTrueContact([...data.map((d) => ({ _id: d._id, trueContact: 1 }))])
       );
   };
   const updateTrueContact = () => {
-    fetch("http://localhost:5004/updateTrueContact", {
+    fetch("http://192.168.10.11:5004/updateTrueContact", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(trueContact),
@@ -86,14 +88,14 @@ const ReportBoard = () => {
       .then((data) => setStatus2(data));
   };
   const handleSOB1 = () => {
-    fetch("http://localhost:5004/nonSOB1?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/nonSOB1?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setSOB1([...data.map((d) => ({ _id: d._id, nonSOB1: 1 }))])
       );
   };
   const updateSOB1 = () => {
-    fetch("http://localhost:5004/updatenonSOB1", {
+    fetch("http://192.168.10.11:5004/updatenonSOB1", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(sob1),
@@ -102,14 +104,14 @@ const ReportBoard = () => {
       .then((data) => setStatus3(data));
   };
   const handleSOB2 = () => {
-    fetch("http://localhost:5004/nonSOB2?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/nonSOB2?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setSOB2([...data.map((d) => ({ _id: d._id, nonSOB2_Final: 1 }))])
       );
   };
   const updateSOB2 = () => {
-    fetch("http://localhost:5004/updatenonSOB2", {
+    fetch("http://192.168.10.11:5004/updatenonSOB2", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(sob2),
@@ -118,14 +120,14 @@ const ReportBoard = () => {
       .then((data) => setStatus4(data));
   };
   const handleExtMSB = () => {
-    fetch("http://localhost:5004/extMSB?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/extMSB?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setextMSB([...data.map((d) => ({ _id: d._id, extMSB: 1 }))])
       );
   };
   const updateExtMSB = () => {
-    fetch("http://localhost:5004/updateextMSB", {
+    fetch("http://192.168.10.11:5004/updateextMSB", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(extMSB),
@@ -134,7 +136,7 @@ const ReportBoard = () => {
       .then((data) => setStatus6(data));
   };
   const handleNotContacted1 = () => {
-    fetch("http://localhost:5004/notContacted1?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/notContacted1?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setnotContacted1([
@@ -143,7 +145,7 @@ const ReportBoard = () => {
       );
   };
   const updateNotContacted1 = () => {
-    fetch("http://localhost:5004/updateNotContacted1", {
+    fetch("http://192.168.10.11:5004/updateNotContacted1", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(notContacted1),
@@ -152,7 +154,7 @@ const ReportBoard = () => {
       .then((data) => setStatus7(data));
   };
   const handleNotContacted2 = () => {
-    fetch("http://localhost:5004/notContacted2?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/notContacted2?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setnotContacted2([
@@ -161,7 +163,7 @@ const ReportBoard = () => {
       );
   };
   const updateNotContacted2 = () => {
-    fetch("http://localhost:5004/updateNotContacted2", {
+    fetch("http://192.168.10.11:5004/updateNotContacted2", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(notContacted2),
@@ -170,7 +172,7 @@ const ReportBoard = () => {
       .then((data) => setStatus8(data));
   };
   const handleNotContacted3 = () => {
-    fetch("http://localhost:5004/notContacted3?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/notContacted3?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setnotContacted3([
@@ -179,7 +181,7 @@ const ReportBoard = () => {
       );
   };
   const updateNotContacted3 = () => {
-    fetch("http://localhost:5004/updateNotContacted3", {
+    fetch("http://192.168.10.11:5004/updateNotContacted3", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(notContacted3),
@@ -188,7 +190,7 @@ const ReportBoard = () => {
       .then((data) => setStatus9(data));
   };
   const handleNotContacted4 = () => {
-    fetch("http://localhost:5004/notContacted4?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/notContacted4?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setnotContacted4([
@@ -197,7 +199,7 @@ const ReportBoard = () => {
       );
   };
   const updateNotContacted4 = () => {
-    fetch("http://localhost:5004/updateNotContacted4", {
+    fetch("http://192.168.10.11:5004/updateNotContacted4", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(notContacted4),
@@ -206,7 +208,9 @@ const ReportBoard = () => {
       .then((data) => setStatus10(data));
   };
   const handleNotContacted = () => {
-    fetch("http://localhost:5004/finalNotContacted?reportDate=" + reportDate)
+    fetch(
+      "http://192.168.10.11:5004/finalNotContacted?reportDate=" + reportDate
+    )
       .then((res) => res.json())
       .then((data) =>
         setFinalNotContacted([
@@ -215,7 +219,7 @@ const ReportBoard = () => {
       );
   };
   const updateNotContacted = () => {
-    fetch("http://localhost:5004/updateFinalNotContacted", {
+    fetch("http://192.168.10.11:5004/updateFinalNotContacted", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(finalNotContacted),
@@ -224,7 +228,7 @@ const ReportBoard = () => {
       .then((data) => setStatus11(data));
   };
   const handlePureNotContacted = () => {
-    fetch("http://localhost:5004/pureNotContacted?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/pureNotContacted?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setFinalPureNotContacted([
@@ -233,7 +237,7 @@ const ReportBoard = () => {
       );
   };
   const updatePureNotContacted = () => {
-    fetch("http://localhost:5004/updateFinalPureNotContacted", {
+    fetch("http://192.168.10.11:5004/updateFinalPureNotContacted", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(finalPureNotContacted),
@@ -243,7 +247,7 @@ const ReportBoard = () => {
   };
 
   const handleFalseContact = () => {
-    fetch("http://localhost:5004/falseContact?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/falseContact?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setFalseContact([
@@ -252,7 +256,7 @@ const ReportBoard = () => {
       );
   };
   const updateFalseContact = () => {
-    fetch("http://localhost:5004/updateFalseContact", {
+    fetch("http://192.168.10.11:5004/updateFalseContact", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(falseContact),
@@ -261,7 +265,9 @@ const ReportBoard = () => {
       .then((data) => setStatus13(data));
   };
   const handleVerifyTrueContact = () => {
-    fetch("http://localhost:5004/verifyFalseContact?reportDate=" + reportDate)
+    fetch(
+      "http://192.168.10.11:5004/verifyFalseContact?reportDate=" + reportDate
+    )
       .then((res) => res.json())
       .then((data) =>
         setverifyTrueContact([
@@ -270,7 +276,7 @@ const ReportBoard = () => {
       );
   };
   const updateVerifyTrueContact = () => {
-    fetch("http://localhost:5004/updateVerifiedTrueContact", {
+    fetch("http://192.168.10.11:5004/updateVerifiedTrueContact", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(verifyTrueContact),
@@ -279,14 +285,14 @@ const ReportBoard = () => {
       .then((data) => setStatus14(data));
   };
   const handlenoFreeSample = () => {
-    fetch("http://localhost:5004/noFreeSample?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/noFreeSample?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setNoFreeSample([...data.map((d) => ({ _id: d._id, noFreeSample: 1 }))])
       );
   };
   const updatenoFreeSample = () => {
-    fetch("http://localhost:5004/updateNoFreeSample", {
+    fetch("http://192.168.10.11:5004/updateNoFreeSample", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(noFreeSample),
@@ -295,7 +301,7 @@ const ReportBoard = () => {
       .then((data) => setStatus15(data));
   };
   const handleLessFreeSample = () => {
-    fetch("http://localhost:5004/lessFreeSample?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/lessFreeSample?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setLessFreeSample([
@@ -304,7 +310,7 @@ const ReportBoard = () => {
       );
   };
   const updateLessFreeSample = () => {
-    fetch("http://localhost:5004/updateLessFreeSample", {
+    fetch("http://192.168.10.11:5004/updateLessFreeSample", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(lessFreeSample),
@@ -313,14 +319,14 @@ const ReportBoard = () => {
       .then((data) => setStatus16(data));
   };
   const handleTeaSnaks = () => {
-    fetch("http://localhost:5004/teaSnaks?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/teaSnaks?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setTeaSnaks([...data.map((d) => ({ _id: d._id, teaSnaks: 1 }))])
       );
   };
   const updateTeaSnaks = () => {
-    fetch("http://localhost:5004/updateTeaSnaks", {
+    fetch("http://192.168.10.11:5004/updateTeaSnaks", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(teaSnaks),
@@ -329,14 +335,14 @@ const ReportBoard = () => {
       .then((data) => setStatus17(data));
   };
   const handleRetention = () => {
-    fetch("http://localhost:5004/retention?reportDate=" + reportDate)
+    fetch("http://192.168.10.11:5004/retention?reportDate=" + reportDate)
       .then((res) => res.json())
       .then((data) =>
         setRetention([...data.map((d) => ({ _id: d._id, retention: 1 }))])
       );
   };
   const updateRetention = () => {
-    fetch("http://localhost:5004/updateRetention", {
+    fetch("http://192.168.10.11:5004/updateRetention", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(retention),
@@ -363,14 +369,18 @@ const ReportBoard = () => {
           <button className="btn btn-danger" onClick={handleConnected}>
             Generate Connected Call
           </button>
-          <h5>{condition1.length > 0 ? "Done" : "Not Done"}</h5>
+          <h5 style={{ color: condition1.length > 0 ? "green" : "red" }}>
+            {condition1.length > 0 ? "Done" : "Not Done"}
+          </h5>
         </div>
         <br />
         <div className="d-flex justify-content-around">
           <button onClick={handleCondition1} className="btn btn-danger">
             Update Connected Call
           </button>
-          <h5>{status1.message === true ? "Done" : "Not Done"}</h5>
+          <h5 style={{ color: status1.message === true ? "green" : "red" }}>
+            {status1.message === true ? "Done" : "Not Done"}
+          </h5>
         </div>
       </div>
       <div className="card w-75 container mt-2 p-3">
@@ -381,14 +391,18 @@ const ReportBoard = () => {
             <button className="btn btn-danger" onClick={handleTrueContact}>
               Generate True Contact
             </button>
-            <h5>{trueContact.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: trueContact.length > 0 ? "green" : "red" }}>
+              {trueContact.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateTrueContact} className="btn btn-danger">
               Update True Contact
             </button>
-            <h5>{status2.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status2.message === true ? "green" : "red" }}>
+              {status2.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
         </div>
       </div>
@@ -400,14 +414,18 @@ const ReportBoard = () => {
             <button className="btn btn-danger" onClick={handleSOB1}>
               Generate NonSOB1
             </button>
-            <h5>{sob1.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: sob1.length > 0 ? "green" : "red" }}>
+              {sob1.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateSOB1} className="btn btn-danger">
               Update NonSOB1
             </button>
-            <h5>{status3.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status3.message === true ? "green" : "red" }}>
+              {status3.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
         </div>
       </div>
@@ -419,14 +437,18 @@ const ReportBoard = () => {
             <button className="btn btn-danger" onClick={handleSOB2}>
               Generate NonSOB2
             </button>
-            <h5>{sob2.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: sob2.length > 0 ? "green" : "red" }}>
+              {sob2.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateSOB2} className="btn btn-danger">
               Update NonSOB2
             </button>
-            <h5>{status4.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status4.message === true ? "green" : "red" }}>
+              {status4.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
         </div>
       </div>
@@ -438,14 +460,18 @@ const ReportBoard = () => {
             <button className="btn btn-danger" onClick={handleExtMSB}>
               Generate EXT MSB
             </button>
-            <h5>{extMSB.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: extMSB.length > 0 ? "green" : "red" }}>
+              {extMSB.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateExtMSB} className="btn btn-danger">
               Update EXT MSB
             </button>
-            <h5>{status6.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status6.message === true ? "green" : "red" }}>
+              {status6.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
         </div>
       </div>
@@ -457,42 +483,54 @@ const ReportBoard = () => {
             <button className="btn btn-danger" onClick={handleNotContacted1}>
               Generate Not Contacted 1
             </button>
-            <h5>{notContacted1.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: notContacted1.length > 0 ? "green" : "red" }}>
+              {notContacted1.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateNotContacted1} className="btn btn-danger">
               Update Not Contacted 1
             </button>
-            <h5>{status7.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status7.message === true ? "green" : "red" }}>
+              {status7.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
           <p>Update Status Of Update Not Contacted 2: </p>
           <div className="d-flex justify-content-around">
             <button className="btn btn-danger" onClick={handleNotContacted2}>
               Generate Not Contacted 2
             </button>
-            <h5>{notContacted2.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: notContacted2.length > 0 ? "green" : "red" }}>
+              {notContacted2.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateNotContacted2} className="btn btn-danger">
               Update Not Contacted 2
             </button>
-            <h5>{status8.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status8.message === true ? "green" : "red" }}>
+              {status8.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
           <p>Update Status Of Update Not Contacted 3: </p>
           <div className="d-flex justify-content-around">
             <button className="btn btn-danger" onClick={handleNotContacted3}>
               Generate Not Contacted 3
             </button>
-            <h5>{notContacted3.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: notContacted3.length > 0 ? "green" : "red" }}>
+              {notContacted3.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateNotContacted3} className="btn btn-danger">
               Update Not Contacted 3
             </button>
-            <h5>{status9.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status9.message === true ? "green" : "red" }}>
+              {status9.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
 
           <p>Update Status Of Update Not Contacted 4: </p>
@@ -500,28 +538,38 @@ const ReportBoard = () => {
             <button className="btn btn-danger" onClick={handleNotContacted4}>
               Generate Not Contacted 4
             </button>
-            <h5>{notContacted4.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: notContacted4.length > 0 ? "green" : "red" }}>
+              {notContacted4.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateNotContacted4} className="btn btn-danger">
               Update Not Contacted 4
             </button>
-            <h5>{status10.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status10.message === true ? "green" : "red" }}>
+              {status10.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
           <p>Update Status Of Update Final Not Contacted: </p>
           <div className="d-flex justify-content-around">
             <button className="btn btn-danger" onClick={handleNotContacted}>
               Generate Not Contacted
             </button>
-            <h5>{finalNotContacted.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5
+              style={{ color: finalNotContacted.length > 0 ? "green" : "red" }}
+            >
+              {finalNotContacted.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateNotContacted} className="btn btn-danger">
               Update Not Contacted
             </button>
-            <h5>{status11.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status11.message === true ? "green" : "red" }}>
+              {status11.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
 
           <p>Update Status Of Update Purefy Not Contacted: </p>
@@ -529,14 +577,22 @@ const ReportBoard = () => {
             <button className="btn btn-danger" onClick={handlePureNotContacted}>
               Generate Pure Not Contacted
             </button>
-            <h5>{finalPureNotContacted.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5
+              style={{
+                color: finalPureNotContacted.length > 0 ? "green" : "red",
+              }}
+            >
+              {finalPureNotContacted.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updatePureNotContacted} className="btn btn-danger">
               Update Pure Not Contacted
             </button>
-            <h5>{status12.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status12.message === true ? "green" : "red" }}>
+              {status12.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
         </div>
       </div>
@@ -548,14 +604,18 @@ const ReportBoard = () => {
             <button className="btn btn-danger" onClick={handleFalseContact}>
               Generate False Contact
             </button>
-            <h5>{falseContact.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: falseContact.length > 0 ? "green" : "red" }}>
+              {falseContact.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateFalseContact} className="btn btn-danger">
               Update False Contact
             </button>
-            <h5>{status13.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status13.message === true ? "green" : "red" }}>
+              {status13.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
         </div>
       </div>
@@ -570,7 +630,11 @@ const ReportBoard = () => {
             >
               Get True === False
             </button>
-            <h5>{verifyTrueContact.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5
+              style={{ color: verifyTrueContact.length > 0 ? "green" : "red" }}
+            >
+              {verifyTrueContact.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
@@ -580,7 +644,9 @@ const ReportBoard = () => {
             >
               Update True === False
             </button>
-            <h5>{status14.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status14.message === true ? "green" : "red" }}>
+              {status14.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
         </div>
       </div>
@@ -592,14 +658,18 @@ const ReportBoard = () => {
             <button className="btn btn-danger" onClick={handlenoFreeSample}>
               Get no Free Sample
             </button>
-            <h5>{noFreeSample.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: noFreeSample.length > 0 ? "green" : "red" }}>
+              {noFreeSample.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updatenoFreeSample} className="btn btn-danger">
               Update no Free Sample
             </button>
-            <h5>{status15.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status15.message === true ? "green" : "red" }}>
+              {status15.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
         </div>
       </div>
@@ -611,14 +681,18 @@ const ReportBoard = () => {
             <button className="btn btn-danger" onClick={handleLessFreeSample}>
               Get Less Free Sample
             </button>
-            <h5>{lessFreeSample.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: lessFreeSample.length > 0 ? "green" : "red" }}>
+              {lessFreeSample.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateLessFreeSample} className="btn btn-danger">
               Update Less Free Sample
             </button>
-            <h5>{status16.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status16.message === true ? "green" : "red" }}>
+              {status16.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
         </div>
       </div>
@@ -630,14 +704,18 @@ const ReportBoard = () => {
             <button className="btn btn-danger" onClick={handleTeaSnaks}>
               Get teaSnaks
             </button>
-            <h5>{teaSnaks.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: teaSnaks.length > 0 ? "green" : "red" }}>
+              {teaSnaks.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateTeaSnaks} className="btn btn-danger">
               Update teaSnaks
             </button>
-            <h5>{status17.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status17.message === true ? "green" : "red" }}>
+              {status17.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
         </div>
       </div>
@@ -649,14 +727,18 @@ const ReportBoard = () => {
             <button className="btn btn-danger" onClick={handleRetention}>
               Get retention
             </button>
-            <h5>{retention.length > 0 ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: retention.length > 0 ? "green" : "red" }}>
+              {retention.length > 0 ? "Done" : "Not Done"}
+            </h5>
           </div>
           <br />
           <div className="d-flex justify-content-around">
             <button onClick={updateRetention} className="btn btn-danger">
               Update retention
             </button>
-            <h5>{status18.message === true ? "Done" : "Not Done"}</h5>
+            <h5 style={{ color: status18.message === true ? "green" : "red" }}>
+              {status18.message === true ? "Done" : "Not Done"}
+            </h5>
           </div>
         </div>
       </div>

@@ -6,11 +6,21 @@ import fifotech from "../../../images/logo_s.png";
 
 const TerritoryCombineReport = () => {
   const [combineTerritory, setCombineTerritory] = useState([]);
+  const [minusTerritory, setMinusTerritory] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5004/territoryCombineReport")
+    fetch("http://192.168.10.11:5004/territoryCombineReport")
       .then((res) => res.json())
       .then((data) => setCombineTerritory(data));
   }, []);
+  useEffect(() => {
+    fetch("http://192.168.10.11:5004/territoryMinusReport")
+      .then((res) => res.json())
+      .then((data) => setMinusTerritory(data));
+  }, []);
+
+  const grandChargeAmount = minusTerritory[0]?.grandSumChargeAmount;
+  let grand = parseFloat(grandChargeAmount).toFixed(2);
+
   const grandTarget = combineTerritory[0]?.grandSumTarget;
   const grandValidData = combineTerritory[0]?.grandSumValidData;
   const grandLessContacted = combineTerritory[0]?.grandSumLessContacted;
@@ -31,8 +41,8 @@ const TerritoryCombineReport = () => {
   const grandLessMoreTrueContacted =
     combineTerritory[0]?.grandSumLessMoreTrueContacted;
   const grandAvgConsumerAmount = combineTerritory[0]?.grandAvgConsumerAmount;
-  const grandChargeAmount = combineTerritory[0]?.grandSumChargeAmount;
-  let grand = parseFloat(grandChargeAmount).toFixed(2);
+  // const grandChargeAmount = combineTerritory[0]?.grandSumChargeAmount;
+  // let grand = parseFloat(grandChargeAmount).toFixed(2);
   const grandAvgConsumerCount = combineTerritory[0]?.grandAvgConsumerCount;
   return (
     <div className="m-3">
@@ -229,7 +239,11 @@ const TerritoryCombineReport = () => {
                 {/* Per Consumer Average */}
                 <td>{query.avgConsumerAmount.toFixed(2)}</td>
                 {/* Charge Amount */}
-                <td>{query.sumChargeAmount.toFixed(2)}</td>
+                <td>
+                  {query.sumChargeAmount.toFixed(2) > 0
+                    ? 0
+                    : query.sumChargeAmount.toFixed(2)}
+                </td>
               </tr>
             ))}
           </tbody>

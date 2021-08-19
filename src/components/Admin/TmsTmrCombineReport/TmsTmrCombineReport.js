@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import aktcl from "../../../images/aktcl.png";
 import fifotech from "../../../images/logo_s.png";
-import "./ViewTmsTmrReport.css";
 
-const ViewTmsTmrReport = () => {
+const TmsTmrCombineReport = () => {
   const [counted, setCounts] = useState([]);
   useEffect(() => {
     fetch("http://192.168.10.11:5004/reportTable")
@@ -55,18 +54,11 @@ const ViewTmsTmrReport = () => {
   const targetTrueContactTotal = counted[0]?.targetTrueContact * counted.length;
   const perConsumeravgTotal = counted[0]?.grandAvgExpense;
   const sumResult = counted
-    .map((d) =>
-      (d.true_Contact_count * d.valid_Data_count) / d.connected_Call_count >=
-      d.targetTrueContact
-        ? ((d.true_Contact_count * d.valid_Data_count) /
-            d.connected_Call_count -
-            d.targetTrueContact) *
-          d.avgExpense *
-          0
-        : ((d.true_Contact_count * d.valid_Data_count) /
-            d.connected_Call_count -
-            d.targetTrueContact) *
-          d.avgExpense
+    .map(
+      (d) =>
+        ((d.true_Contact_count * d.valid_Data_count) / d.connected_Call_count -
+          d.targetTrueContact) *
+        d.avgExpense
     )
     .reduce((sum, cv) => (sum += Number(cv)), 0)
     .toFixed(2);
@@ -428,45 +420,12 @@ const ViewTmsTmrReport = () => {
                   <td>{parseFloat(query.avgExpense)}</td>
                   {/* Charge Amount */}
                   <td>
-                    {isNaN(
-                      (
-                        (query.true_Contact_count * query.valid_Data_count) /
-                        query.connected_Call_count
-                      ).toFixed(2) >= query.targetTrueContact
-                        ? (
-                            ((query.true_Contact_count *
-                              query.valid_Data_count) /
-                              query.connected_Call_count -
-                              query.targetTrueContact) *
-                            query.avgExpense *
-                            0
-                          ).toFixed(2)
-                        : (
-                            ((query.true_Contact_count *
-                              query.valid_Data_count) /
-                              query.connected_Call_count -
-                              query.targetTrueContact) *
-                            query.avgExpense
-                          ).toFixed(2)
-                    )
-                      ? 0
-                      : (
-                          (query.true_Contact_count * query.valid_Data_count) /
-                          query.connected_Call_count
-                        ).toFixed(2) >= query.targetTrueContact
-                      ? (
-                          ((query.true_Contact_count * query.valid_Data_count) /
-                            query.connected_Call_count -
-                            query.targetTrueContact) *
-                          query.avgExpense *
-                          0
-                        ).toFixed(2)
-                      : (
-                          ((query.true_Contact_count * query.valid_Data_count) /
-                            query.connected_Call_count -
-                            query.targetTrueContact) *
-                          query.avgExpense
-                        ).toFixed(2)}
+                    {(
+                      ((query.true_Contact_count * query.valid_Data_count) /
+                        query.connected_Call_count -
+                        query.targetTrueContact) *
+                      query.avgExpense
+                    ).toFixed(2)}
                   </td>
                 </tr>
               ))}
@@ -664,4 +623,4 @@ const ViewTmsTmrReport = () => {
   );
 };
 
-export default ViewTmsTmrReport;
+export default TmsTmrCombineReport;

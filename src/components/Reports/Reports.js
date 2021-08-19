@@ -7,7 +7,7 @@ const Reports = () => {
   const [dates, setDates] = useState([]);
   const [downloaded, setDownloaded] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5004/reports")
+    fetch("http://192.168.10.11:5004/reports")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -15,14 +15,14 @@ const Reports = () => {
       });
   }, []);
   useEffect(() => {
-    fetch("http://localhost:5004/reportDates")
+    fetch("http://192.168.10.11:5004/reportDates")
       .then((res) => res.json())
       .then((data) => setDates(data));
   }, []);
 
   function handlePrepare(pdate) {
     console.log(pdate);
-    fetch("http://localhost:5004/prepareByDate?date=" + pdate)
+    fetch("http://192.168.10.11:5004/prepareByDate?date=" + pdate)
       .then((res) => res.json())
       .then((data) => setDownloaded(data));
   }
@@ -83,18 +83,6 @@ const Reports = () => {
     { label: "rating", key: "rating" },
     { label: "callDate", key: "callDate" },
     { label: "callTime", key: "callTime" },
-
-    { label: "q1", key: "q1" },
-    { label: "q2", key: "q2" },
-    { label: "q3", key: "q3" },
-    { label: "q4", key: "q4" },
-    { label: "q5", key: "q5" },
-    { label: "q6", key: "q6" },
-    { label: "q7", key: "q7" },
-    { label: "q8", key: "q8" },
-    { label: "q9", key: "q9" },
-    { label: "q10", key: "q10" },
-    { label: "q11", key: "q11" },
 
     { label: "q1", key: "answer1" },
     { label: "q2", key: "answer2" },

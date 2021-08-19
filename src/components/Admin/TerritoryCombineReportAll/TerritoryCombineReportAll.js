@@ -4,36 +4,40 @@ import { useEffect } from "react";
 import aktcl from "../../../images/aktcl.png";
 import fifotech from "../../../images/logo_s.png";
 
-const TerritoryMinusReport = () => {
-  const [minusTerritory, setMinusTerritory] = useState([]);
+const TerritoryCombineReportAll = () => {
+  const [combineTerritory, setCombineTerritory] = useState([]);
   useEffect(() => {
-    fetch("http://192.168.10.11:5004/territoryMinusReport")
+    fetch("http://192.168.10.11:5004/territoryCombineReport")
       .then((res) => res.json())
-      .then((data) => setMinusTerritory(data));
+      .then((data) => setCombineTerritory(data));
   }, []);
-  const grandTarget = minusTerritory[0]?.grandSumTarget;
-  const grandValidData = minusTerritory[0]?.grandSumValidData;
-  const grandLessContacted = minusTerritory[0]?.grandSumLessContacted;
-  const grandConnectedCall = minusTerritory[0]?.grandSumConnectedCall;
-  const grandTruelyConnected = minusTerritory[0]?.grandSumTruelyConnected;
-  const grandNotConnected = minusTerritory[0]?.grandSumNotConnected;
-  const grandWtgNonSOB = minusTerritory[0]?.grandSumWtgNonSOB;
-  const grandExtMSB = minusTerritory[0]?.grandSumExtMSB;
-  const grandFalseContact = minusTerritory[0]?.grandSumFalseContact;
-  const grandNoFreeSample = minusTerritory[0]?.grandSumNoFreeSample;
-  const grandLessFreeSample = minusTerritory[0]?.grandSumLessFreeSample;
+
+  // const grandChargeAmount = minusTerritory[0]?.grandSumChargeAmount;
+  // let grand = parseFloat(grandChargeAmount).toFixed(2);
+
+  const grandTarget = combineTerritory[0]?.grandSumTarget;
+  const grandValidData = combineTerritory[0]?.grandSumValidData;
+  const grandLessContacted = combineTerritory[0]?.grandSumLessContacted;
+  const grandConnectedCall = combineTerritory[0]?.grandSumConnectedCall;
+  const grandTruelyConnected = combineTerritory[0]?.grandSumTruelyConnected;
+  const grandNotConnected = combineTerritory[0]?.grandSumNotConnected;
+  const grandWtgNonSOB = combineTerritory[0]?.grandSumWtgNonSOB;
+  const grandExtMSB = combineTerritory[0]?.grandSumExtMSB;
+  const grandFalseContact = combineTerritory[0]?.grandSumFalseContact;
+  const grandNoFreeSample = combineTerritory[0]?.grandSumNoFreeSample;
+  const grandLessFreeSample = combineTerritory[0]?.grandSumLessFreeSample;
   const grandNoAndLessFreeSample =
-    minusTerritory[0]?.grandSumNoAndLessFreeSample;
-  const grandTeaSnacks = minusTerritory[0]?.grandSumTeaSnacks;
-  const grandRetaination = minusTerritory[0]?.grandSumRetaination;
-  const grandTargetTrueContact = minusTerritory[0]?.grandSumTargetTrueContact;
-  const grandExtrapulatedData = minusTerritory[0]?.grandSumExtrapulatedData;
+    combineTerritory[0]?.grandSumNoAndLessFreeSample;
+  const grandTeaSnacks = combineTerritory[0]?.grandSumTeaSnacks;
+  const grandRetaination = combineTerritory[0]?.grandSumRetaination;
+  const grandTargetTrueContact = combineTerritory[0]?.grandSumTargetTrueContact;
+  const grandExtrapulatedData = combineTerritory[0]?.grandSumExtrapulatedData;
   const grandLessMoreTrueContacted =
-    minusTerritory[0]?.grandSumLessMoreTrueContacted;
-  const grandAvgConsumerAmount = minusTerritory[0]?.grandAvgConsumerAmount;
-  const grandChargeAmount = minusTerritory[0]?.grandSumChargeAmount;
+    combineTerritory[0]?.grandSumLessMoreTrueContacted;
+  const grandAvgConsumerAmount = combineTerritory[0]?.grandAvgConsumerAmount;
+  const grandChargeAmount = combineTerritory[0]?.grandSumChargeAmount;
   let grand = parseFloat(grandChargeAmount).toFixed(2);
-  const grandAvgConsumerCount = minusTerritory[0]?.grandAvgConsumerCount;
+  const grandAvgConsumerCount = combineTerritory[0]?.grandAvgConsumerCount;
   return (
     <div className="m-3">
       <div className="d-flex justify-content-between">
@@ -181,7 +185,7 @@ const TerritoryMinusReport = () => {
             </tr>
           </thead>
           <tbody>
-            {minusTerritory.map((query, index) => (
+            {combineTerritory.map((query, index) => (
               <tr>
                 <td>{index + 1}</td>
                 <td>{query.territoryName}</td>
@@ -337,7 +341,7 @@ const TerritoryMinusReport = () => {
               </td>
 
               <td style={{ fontWeight: "bold", backgroundColor: "lightgray" }}>
-                {grandExtrapulatedData}
+                {parseFloat(grandExtrapulatedData).toFixed(2)}
               </td>
               <td style={{ fontWeight: "bold", backgroundColor: "lightgray" }}>
                 {((grandExtrapulatedData / grandTarget) * 100).toFixed(2) + "%"}
@@ -359,4 +363,4 @@ const TerritoryMinusReport = () => {
   );
 };
 
-export default TerritoryMinusReport;
+export default TerritoryCombineReportAll;

@@ -2,18 +2,17 @@ import React, { useState } from "react";
 
 const GenerateReport = () => {
   const [status, setStatus] = useState(false);
-  const [status1, setStatus1] = useState(false);
   const [getTerritoryStatus, setGetTerritoryStatus] = useState(false);
   const [counted, setCounts] = useState([]);
   console.log(counted);
 
   const handleTms = () => {
-    fetch("http://localhost:5004/analyze_import")
+    fetch("http://192.168.10.11:5004/analyze_import")
       .then((res) => res.json())
       .then((data) => setStatus(data));
   };
   const getTerritoryData = () => {
-    fetch("http://localhost:5004/reportTable")
+    fetch("http://192.168.10.11:5004/reportTable")
       .then((res) => res.json())
       .then((data) => setCounts(data));
   };
@@ -24,8 +23,11 @@ const GenerateReport = () => {
         callDate: all.callDate,
         dataDate: all.dataDate,
         userName: all.userName,
+        territoryID: all.territoryID,
+        consumerNumber: all.consumerNumber,
         territory: all.teritory,
         target: all.target,
+        tmContactNo: all.tmContactNo,
         lessContacted: all.target - all.valid_Data_count,
         lessContactPercentage: Math.round(
           ((all.target - all.valid_Data_count) / all.target) * 100
@@ -155,7 +157,7 @@ const GenerateReport = () => {
           all.avgExpense.toFixed(2),
       };
     });
-    fetch("http://localhost:5004/reportDatas", {
+    fetch("http://192.168.10.11:5004/reportDatas", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(allData),
