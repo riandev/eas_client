@@ -51,7 +51,7 @@ const SummaryReport = () => {
           <h6>Total Territory Count: {summary.length}</h6>
         </div>
         <div>
-          <h6>Date Of Call: {summary[1]?.callDate}</h6>
+          <h6>Date Of Call: {summary[1]?.callDate1}</h6>
         </div>
       </div>
       <div className="text-center mt-3">

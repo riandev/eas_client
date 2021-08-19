@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Button, Card, Form, Row } from "react-bootstrap";
+import { CSVLink } from "react-csv";
 
 const LeadGenerate = () => {
   const [initialLeads, setInitialLeads] = useState([]);
+  console.log(initialLeads);
   const [regenerate, setRegenerate] = useState([]);
 
   const [initialUpdateStatus, setInitialUpdateStatus] = useState(false);
@@ -19,13 +21,11 @@ const LeadGenerate = () => {
   const [regenleadId, setRegenLeadId] = useState(null);
   const [regenisActive, setRegenIsActive] = useState(null);
 
-  console.log(regenleadId, regenleadName, regenisActive);
+  // const [createStatus, setCreateStatus] = useState(false);
+  // const [createStatusReg, setCreateStatusReg] = useState(false);
 
-  const [createStatus, setCreateStatus] = useState(false);
-  const [createStatusReg, setCreateStatusReg] = useState(false);
-
-  const [dialerUpdateStatus, setdialerUpdate] = useState(false);
-  const [dialerRegenUpdateStatus, setdialerRegnUpdate] = useState(false);
+  // const [dialerUpdateStatus, setdialerUpdate] = useState(false);
+  // const [dialerRegenUpdateStatus, setdialerRegnUpdate] = useState(false);
 
   const manageInitialDate = (e) => {
     const d = new Date(e.target.value);
@@ -69,33 +69,33 @@ const LeadGenerate = () => {
     { label: "Consumer_No", key: "Consumer_No" },
   ];
 
-  const handleCRM = () => {
-    initialLeads.forEach((element) => {
-      fetch(
-        `http://192.168.1.70/vicidial/non_agent_api.php?source=test&user=admin&pass=F1f0t3ch&function=add_lead&phone_number=${element.Consumer_No}&phone_code=1&list_id=${leadId}&dnc_check=N&first_name=${element.r_name}&last_name=$l_name&address1=${element.data_date}&postal_code=${element.diid}&comments=sample`,
-        {
-          headers: { "Access-Control-Allow-Origin": "*" },
-        }
-      )
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-      setdialerUpdate(true);
-    });
-  };
+  // const handleCRM = () => {
+  //   initialLeads.forEach((element) => {
+  //     fetch(
+  //       `http://192.168.1.70/vicidial/non_agent_api.php?source=test&user=admin&pass=F1f0t3ch&function=add_lead&phone_number=${element.Consumer_No}&phone_code=1&list_id=${leadId}&dnc_check=N&first_name=${element.r_name}&last_name=$l_name&address1=${element.data_date}&postal_code=${element.diid}&comments=sample`,
+  //       {
+  //         headers: { "Access-Control-Allow-Origin": "*" },
+  //       }
+  //     )
+  //       .then((res) => res.json())
+  //       .then((data) => console.log(data));
+  //     setdialerUpdate(true);
+  //   });
+  // };
 
-  const handleRegenCRM = () => {
-    regenerate.forEach((element) => {
-      fetch(
-        `http://192.168.1.70/vicidial/non_agent_api.php?source=test&user=admin&pass=F1f0t3ch&function=add_lead&phone_number=${element.Consumer_No}&phone_code=1&list_id=${regenleadId}&dnc_check=N&first_name=${element.r_name}&last_name=$l_name&address1=${element.data_date}&postal_code=${element.diid}&comments=sample`,
-        {
-          headers: { "Access-Control-Allow-Origin": "*" },
-        }
-      )
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    });
-    setdialerRegnUpdate(true);
-  };
+  // const handleRegenCRM = () => {
+  //   regenerate.forEach((element) => {
+  //     fetch(
+  //       `http://192.168.1.70/vicidial/non_agent_api.php?source=test&user=admin&pass=F1f0t3ch&function=add_lead&phone_number=${element.Consumer_No}&phone_code=1&list_id=${regenleadId}&dnc_check=N&first_name=${element.r_name}&last_name=$l_name&address1=${element.data_date}&postal_code=${element.diid}&comments=sample`,
+  //       {
+  //         headers: { "Access-Control-Allow-Origin": "*" },
+  //       }
+  //     )
+  //       .then((res) => res.json())
+  //       .then((data) => console.log(data));
+  //   });
+  //   setdialerRegnUpdate(true);
+  // };
 
   const updateInitialLeads = () => {
     fetch("http://192.168.10.11:5004/updateInitialLead", {
@@ -134,45 +134,45 @@ const LeadGenerate = () => {
       .then((data) => setRegenerateUpdateStatus(data));
   };
 
-  const leadListName = (e) => {
-    setLeadName(e.target.value);
-  };
-  const leadListId = (e) => {
-    setLeadId(e.target.value);
-  };
-  const LeadActiveStatus = (e) => {
-    setIsActive(e.target.value);
-  };
+  // const leadListName = (e) => {
+  //   setLeadName(e.target.value);
+  // };
+  // const leadListId = (e) => {
+  //   setLeadId(e.target.value);
+  // };
+  // const LeadActiveStatus = (e) => {
+  //   setIsActive(e.target.value);
+  // };
 
-  const RegenleadListName = (e) => {
-    setRegenLeadName(e.target.value);
-  };
-  const RegenleadListId = (e) => {
-    setRegenLeadId(e.target.value);
-  };
-  const RegenLeadActiveStatus = (e) => {
-    setRegenIsActive(e.target.value);
-  };
+  // const RegenleadListName = (e) => {
+  //   setRegenLeadName(e.target.value);
+  // };
+  // const RegenleadListId = (e) => {
+  //   setRegenLeadId(e.target.value);
+  // };
+  // const RegenLeadActiveStatus = (e) => {
+  //   setRegenIsActive(e.target.value);
+  // };
 
-  const createList = () => {
-    fetch(
-      `http://192.168.1.70/vicidial/non_agent_api.php?source=test&function=add_list&user=admin&pass=F1f0t3ch&list_id=${leadId}&list_name=${leadName}&campaign_id=13_AKTCL&active=${isActive}`
-    )
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+  // const createList = () => {
+  //   fetch(
+  //     `http://192.168.1.70/vicidial/non_agent_api.php?source=test&function=add_list&user=admin&pass=F1f0t3ch&list_id=${leadId}&list_name=${leadName}&campaign_id=13_AKTCL&active=${isActive}`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data));
 
-    setCreateStatus(true);
-  };
+  //   setCreateStatus(true);
+  // };
 
-  const createRegenList = () => {
-    fetch(
-      `http://192.168.1.70/vicidial/non_agent_api.php?source=test&function=add_list&user=admin&pass=F1f0t3ch&list_id=${regenleadId}&list_name=${regenleadName}&campaign_id=13_AKTCL&active=${regenisActive}`
-    )
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+  // const createRegenList = () => {
+  //   fetch(
+  //     `http://192.168.1.70/vicidial/non_agent_api.php?source=test&function=add_list&user=admin&pass=F1f0t3ch&list_id=${regenleadId}&list_name=${regenleadName}&campaign_id=13_AKTCL&active=${regenisActive}`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data));
 
-    setCreateStatusReg(true);
-  };
+  //   setCreateStatusReg(true);
+  // };
 
   return (
     <div className="d-flex justify-content-around">
@@ -181,7 +181,7 @@ const LeadGenerate = () => {
         <div className="mt-2">
           <Card style={{ width: "22rem" }}>
             <Card.Body>
-              <div className="d-flex justify-content-between">
+              {/* <div className="d-flex justify-content-between">
                 <h4 className="text-secondary">Create Lead List</h4>
                 <p style={{ color: createStatus === true ? "green" : "red" }}>
                   {createStatus === true ? "Done" : "Pending"}
@@ -210,10 +210,10 @@ const LeadGenerate = () => {
                     <option value="N">No</option>
                   </Form.Control>
                 </Form.Group>
-              </div>
-              <button onClick={createList} className="btn btn-success">
+              </div> */}
+              {/* <button onClick={createList} className="btn btn-success">
                 Create Lead
-              </button>
+              </button> */}
               <h5 className="mt-3">Generate Initial Leads</h5>
               <input
                 onChange={manageInitialDate}
@@ -248,7 +248,20 @@ const LeadGenerate = () => {
               </div>
               <h5 className="mt-3">Download Initial Leads For Dialer</h5>
               <div className="mt-3 d-flex justify-content-between">
-                <button onClick={handleCRM} className="btn btn-outline-primary">
+                <button className="btn btn-outline-primary">
+                  <CSVLink
+                    headers={headers}
+                    title="Export data to CSV"
+                    filename="AKTCL_EAS_InitialLead.csv"
+                    data={initialLeads}
+                  >
+                    Download
+                  </CSVLink>
+                </button>
+                <p style={{ color: initialLeads.length > 0 ? "green" : "red" }}>
+                  {initialLeads.length > 0 ? "Ready" : "Pending"}
+                </p>
+                {/* <button onClick={handleCRM} className="btn btn-outline-primary">
                   Dialer Update
                 </button>
                 <p
@@ -257,7 +270,7 @@ const LeadGenerate = () => {
                   }}
                 >
                   {dialerUpdateStatus === true ? "Ready" : "Pending"}
-                </p>
+                </p> */}
               </div>
             </Card.Body>
           </Card>
@@ -269,8 +282,8 @@ const LeadGenerate = () => {
         <div className="mt-2">
           <Card style={{ width: "28rem" }}>
             <Card.Body>
-              <div className="d-flex justify-content-between">
-                <h4 className="text-secondary">Create Regen Lead List</h4>
+              {/* <div className="d-flex justify-content-between"> */}
+              {/* <h4 className="text-secondary">Create Regen Lead List</h4>
                 <p
                   style={{ color: createStatusReg === true ? "green" : "red" }}
                 >
@@ -303,7 +316,7 @@ const LeadGenerate = () => {
               </div>
               <button onClick={createRegenList} className="btn btn-success">
                 Create Regen Lead
-              </button>
+              </button> */}
               <h5 className="mt-3">Regenerate Leads</h5>
               <input
                 onChange={manageRegenDate}
@@ -337,19 +350,34 @@ const LeadGenerate = () => {
               </div>
               <h5 className="mt-3">Download Regenerated Leads For Dialer</h5>
               <div className="mt-3 d-flex justify-content-between">
-                <button
+                {/* <button
                   onClick={handleRegenCRM}
                   className="btn btn-outline-primary"
                 >
                   Dialer Update
+                </button> */}
+                {/* <div className="mt-3 d-flex justify-content-between"> */}
+                <button className="btn btn-outline-primary">
+                  <CSVLink
+                    headers={headers}
+                    title="Export data to CSV"
+                    filename="AKTCL_EAS_regenerateLead.csv"
+                    data={regenerate}
+                  >
+                    Download
+                  </CSVLink>
                 </button>
-                <p
+                <p style={{ color: regenerate.length > 0 ? "green" : "red" }}>
+                  {regenerate.length > 0 ? "Ready" : "Pending"}
+                </p>
+                {/* </div> */}
+                {/* <p
                   style={{
                     color: dialerRegenUpdateStatus === true ? "green" : "red",
                   }}
                 >
                   {dialerRegenUpdateStatus === true ? "Ready" : "Pending"}
-                </p>
+                </p> */}
               </div>
             </Card.Body>
           </Card>

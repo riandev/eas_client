@@ -28,6 +28,7 @@ const GenerateReport = () => {
         territory: all.teritory,
         target: all.target,
         tmContactNo: all.tmContactNo,
+        callDate1: all.callDate1,
         lessContacted: all.target - all.valid_Data_count,
         lessContactPercentage: Math.round(
           ((all.target - all.valid_Data_count) / all.target) * 100

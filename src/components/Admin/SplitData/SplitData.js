@@ -96,7 +96,7 @@ const SplitData = () => {
             <h6>Total BR Count: {data.length}</h6>
           </div>
           <div>
-            <h6>Date Of Call: {data[1]?.callDate}</h6>
+            <h6>Date Of Call: {data[1]?.callDate1}</h6>
           </div>
         </div>
         <table className="table bordered table-hover">
