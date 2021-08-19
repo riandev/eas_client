@@ -114,9 +114,9 @@ const GenerateReport = () => {
           : Math.round((all.retention / all.connected_Call_count) * 100),
         targetTrueContact: all.targetTrueContact,
         extrapulatedData: isNaN(
-          (
+          parseFloat(
             (all.true_Contact_count * all.valid_Data_count) /
-            all.connected_Call_count
+              all.connected_Call_count
           ).toFixed(2)
         )
           ? 0.0
@@ -135,10 +135,10 @@ const GenerateReport = () => {
           ).toFixed(2)
         ),
         LessMoreTrueContacted: isNaN(
-          (
+          parseFloat(
             (all.true_Contact_count * all.valid_Data_count) /
               all.connected_Call_count -
-            all.targetTrueContact
+              all.targetTrueContact
           ).toFixed(2)
         )
           ? 0
@@ -150,11 +150,12 @@ const GenerateReport = () => {
               ).toFixed(2)
             ),
         PerConsumerAverage: parseFloat(all.avgExpense),
-        ChargeAmount:
+        ChargeAmount: parseFloat(
           ((all.true_Contact_count * all.valid_Data_count) /
             all.connected_Call_count -
             all.targetTrueContact) *
-          all.avgExpense.toFixed(2),
+            all.avgExpense
+        ).toFixed(2),
       };
     });
     fetch("http://192.168.10.11:5004/reportDatas", {
