@@ -7,12 +7,12 @@ const GenerateReport = () => {
   console.log(counted);
 
   const handleTms = () => {
-    fetch("http://192.168.10.11:5004/analyze_import")
+    fetch("http://localhost:5004/analyze_import")
       .then((res) => res.json())
       .then((data) => setStatus(data));
   };
   const getTerritoryData = () => {
-    fetch("http://192.168.10.11:5004/reportTable")
+    fetch("http://localhost:5004/reportTable")
       .then((res) => res.json())
       .then((data) => setCounts(data));
   };
@@ -159,7 +159,7 @@ const GenerateReport = () => {
         ).toFixed(2),
       };
     });
-    fetch("http://192.168.10.11:5004/reportDatas", {
+    fetch("http://localhost:5004/reportDatas", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(allData),

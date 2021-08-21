@@ -7,7 +7,7 @@ const ViewReports = () => {
       <div>
         <NavLink
           className="btn btn-primary"
-          to={{ pathname: "http://192.168.10.11:5004/admin/finalViewTMS" }}
+          to={{ pathname: "http://localhost:3000/admin/finalViewTMS" }}
           target="_blank"
         >
           TMR/TMS Report (Combine_All_Minus)
@@ -17,7 +17,7 @@ const ViewReports = () => {
         <NavLink
           className="btn btn-primary"
           to={{
-            pathname: "http://192.168.10.11:5004/admin/finalViewTMSCombine",
+            pathname: "http://localhost:3000/admin/finalViewTMSCombine",
           }}
           target="_blank"
         >
@@ -27,7 +27,7 @@ const ViewReports = () => {
       <div className="mt-3">
         <NavLink
           className="btn btn-primary"
-          to={{ pathname: "http://192.168.10.11:5004/admin/finalViewMinus" }}
+          to={{ pathname: "http://localhost:3000/admin/finalViewMinus" }}
           target="_blank"
         >
           View Territory Minus Report
@@ -36,7 +36,7 @@ const ViewReports = () => {
       <div className="mt-3">
         <NavLink
           className="btn btn-primary"
-          to={{ pathname: "http://192.168.10.11:5004/admin/finalViewPlus" }}
+          to={{ pathname: "http://localhost:3000/admin/finalViewPlus" }}
           target="_blank"
         >
           View Territory Plus Report
@@ -45,7 +45,7 @@ const ViewReports = () => {
       <div className="mt-3">
         <NavLink
           className="btn btn-primary"
-          to={{ pathname: "http://192.168.10.11:5004/admin/finalViewCombine" }}
+          to={{ pathname: "http://localhost:3000/admin/finalViewCombine" }}
           target="_blank"
         >
           View Territory Combine Report (Combine_All_Minus)
@@ -55,7 +55,7 @@ const ViewReports = () => {
         <NavLink
           className="btn btn-primary"
           to={{
-            pathname: "http://192.168.10.11:5004/admin/finalViewCombineAll",
+            pathname: "http://localhost:3000/admin/finalViewCombineAll",
           }}
           target="_blank"
         >
@@ -65,7 +65,7 @@ const ViewReports = () => {
       <div className="mt-3">
         <NavLink
           className="btn btn-primary"
-          to={{ pathname: "http://192.168.10.11:5004/admin/finalViewSummary" }}
+          to={{ pathname: "http://localhost:3000/admin/finalViewSummary" }}
           target="_blank"
         >
           View Territory Summary Report

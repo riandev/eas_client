@@ -6,7 +6,7 @@ import "./ViewTmsTmrReport.css";
 const ViewTmsTmrReport = () => {
   const [counted, setCounts] = useState([]);
   useEffect(() => {
-    fetch("http://192.168.10.11:5004/reportTable")
+    fetch("http://localhost:5004/reportTable")
       .then((res) => res.json())
       .then((data) => setCounts(data));
   }, []);
@@ -30,7 +30,6 @@ const ViewTmsTmrReport = () => {
   const nonSOB1 = counted[0]?.noSOB1_total;
   const nonSOB2 = counted[0]?.nonSOB2_total;
   const totalwtgnonSOB = nonSOB1 + nonSOB2;
-  console.log(nonSOB1, nonSOB2);
   const wtgnonsobPercentage = Math.round(
     (totalwtgnonSOB / totalConnected) * 100
   );
@@ -70,6 +69,16 @@ const ViewTmsTmrReport = () => {
     )
     .reduce((sum, cv) => (sum += Number(cv)), 0)
     .toFixed(2);
+
+  // const sumResult = counted
+  //   .map(
+  //     (d) =>
+  //       ((d.true_Contact_count * d.valid_Data_count) / d.connected_Call_count -
+  //         d.targetTrueContact) *
+  //       d.avgExpense
+  //   )
+  //   .reduce((sum, cv) => (sum += Number(cv)), 0)
+  //   .toFixed(2);
   console.log(sumResult);
   return (
     <div>

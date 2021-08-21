@@ -7,7 +7,7 @@ import fifotech from "../../../images/logo_s.png";
 const TerritoryPlusReport = () => {
   const [plusTerritory, setPlusTerritory] = useState([]);
   useEffect(() => {
-    fetch("http://192.168.10.11:5004/territoryPlusReport")
+    fetch("http://localhost:5004/territoryPlusReport")
       .then((res) => res.json())
       .then((data) => setPlusTerritory(data));
   }, []);

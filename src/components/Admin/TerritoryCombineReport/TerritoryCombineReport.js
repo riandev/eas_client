@@ -8,12 +8,12 @@ const TerritoryCombineReport = () => {
   const [combineTerritory, setCombineTerritory] = useState([]);
   const [minusTerritory, setMinusTerritory] = useState([]);
   useEffect(() => {
-    fetch("http://192.168.10.11:5004/territoryCombineReport")
+    fetch("http://localhost:5004/territoryCombineReport")
       .then((res) => res.json())
       .then((data) => setCombineTerritory(data));
   }, []);
   useEffect(() => {
-    fetch("http://192.168.10.11:5004/territoryMinusReport")
+    fetch("http://localhost:5004/territoryMinusReport")
       .then((res) => res.json())
       .then((data) => setMinusTerritory(data));
   }, []);
@@ -240,9 +240,9 @@ const TerritoryCombineReport = () => {
                 <td>{query.avgConsumerAmount.toFixed(2)}</td>
                 {/* Charge Amount */}
                 <td>
-                  {query.sumChargeAmount.toFixed(2) > 0
+                  {parseFloat(query.sumChargeAmount).toFixed(2) > 0
                     ? 0
-                    : query.sumChargeAmount.toFixed(2)}
+                    : parseFloat(query.sumChargeAmount).toFixed(2)}
                 </td>
               </tr>
             ))}
