@@ -8,12 +8,12 @@ const TerritoryCombineReport = () => {
   const [combineTerritory, setCombineTerritory] = useState([]);
   const [minusTerritory, setMinusTerritory] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5004/territoryCombineReport")
+    fetch("http://192.168.10.11:5004/territoryCombineReport")
       .then((res) => res.json())
       .then((data) => setCombineTerritory(data));
   }, []);
   useEffect(() => {
-    fetch("http://localhost:5004/territoryMinusReport")
+    fetch("http://192.168.10.11:5004/territoryMinusReport")
       .then((res) => res.json())
       .then((data) => setMinusTerritory(data));
   }, []);

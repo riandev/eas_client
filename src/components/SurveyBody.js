@@ -26,7 +26,7 @@ const SurveyBody = () => {
     setSearchNumber(e.target.value);
   };
   const handleSearch = () => {
-    fetch(`http://localhost:5004/dMatched/${searchNumber}`)
+    fetch(`http://192.168.10.11:5004/dMatched/${searchNumber}`)
       .then((res) => res.json())
       .then((data) => setConsumer(data));
     setNotFound(true);
@@ -85,7 +85,7 @@ const SurveyBody = () => {
       callDate: new Date().toLocaleDateString(),
       callTime: new Date().toLocaleTimeString(),
     };
-    fetch(`http://localhost:5004/answers/${consumer?._id}`, {
+    fetch(`http://192.168.10.11:5004/answers/${consumer?._id}`, {
       method: "PATCH",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(answer),
@@ -290,7 +290,12 @@ const SurveyBody = () => {
       </div>
       <div
         style={{
-          display: q3 === "marise" && q7 === "marise" ? "block" : "none",
+          display:
+            q3 === "marise" &&
+            q7 === "marise" &&
+            (q4 === "1days" || q4 === "2days" || q4 === "3days")
+              ? "block"
+              : "none",
         }}
         className="mt-2"
       >
@@ -308,6 +313,7 @@ const SurveyBody = () => {
           style={{
             display:
               ((q3 === "derby" ||
+                q3 === "marise" ||
                 q3 === "pilot" ||
                 q3 === "hollywood" ||
                 q3 === "k2" ||
