@@ -293,7 +293,7 @@ const SurveyBody = () => {
           display:
             q3 === "marise" &&
             q7 === "marise" &&
-            (q4 === "1days" || q4 === "2days" || q4 === "3days")
+            (q4 === "1days" || q4 === "2days" || q4 === "3days"||q4 === "4days")
               ? "block"
               : "none",
         }}
