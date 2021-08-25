@@ -287,6 +287,9 @@ const SurveyBody = () => {
           ৬.স্যার গত ২/১ দিনের মধ্যে কি কোন সিগারেট কোম্পানির প্রতিনিধি আপনার
           কাছে এসেছিল? <b>({consumer?.data_date})</b>
         </h6>
+        <p className="text-secondary">
+          উত্তর গ্রহণের ক্ষেত্রে আমরা সর্বোচ্চ ৩দিন বিবেচনা করবো
+        </p>
         <Form.Group onChange={q6value} as={Row}>
           <Form.Control as="select" className="w-50 ml-3">
             <option>...</option>
