@@ -284,8 +284,8 @@ const SurveyBody = () => {
         className="mt-2"
       >
         <h6>
-          ৬.স্যার গতকাল কি কোন সিগারেট কোম্পানির প্রতিনিধি আপনার কাছে এসেছিল?{" "}
-          <b>({consumer?.data_date})</b>
+          ৬.স্যার গত ২/১ দিনের মধ্যে কি কোন সিগারেট কোম্পানির প্রতিনিধি আপনার
+          কাছে এসেছিল? <b>({consumer?.data_date})</b>
         </h6>
         <Form.Group onChange={q6value} as={Row}>
           <Form.Control as="select" className="w-50 ml-3">
@@ -430,7 +430,7 @@ const SurveyBody = () => {
         }}
         className="mt-3"
       >
-        <h5>আমাদের কে সময় দেয়ার জন্য আপনাকে ধন্যবাদ</h5>
+        <h5>আপনার মূল্যবান সময় দেওয়ার জন্য ধন্যবাদ।</h5>
         <br />
         <button onClick={handleSubmit} className="btn btn-danger">
           Submit Survey
@@ -472,8 +472,8 @@ const SurveyBody = () => {
         className="mt-3"
       >
         <h5>
-          বাংলাদেশের সর্বাধিক জনপ্রিয় ব্র্যান্ড মেরিস এখনও ৪ টাকা শলাকা একই
-          উন্নত স্বাদে। আমাদের সাথে থাকার জন্য আপনাকে ধন্যবাদ।
+          বাংলাদেশের সর্বাধিক জনপ্রিয় ব্রান্ড মেরিস এখনও ৪ টাকা শলাকা একই উন্নত
+          স্বাদে। আপনার মূল্যবান সময় দেওয়ার জন্য ধন্যবাদ।
         </h5>
         <br />
         <button onClick={handleSubmit} className="btn btn-danger">
