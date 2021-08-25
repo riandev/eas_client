@@ -316,7 +316,8 @@ const SurveyBody = () => {
             (q4 === "1days" ||
               q4 === "2days" ||
               q4 === "3days" ||
-              q4 === "4days")
+              q4 === "4days" ||
+              q4 === "5days")
               ? "block"
               : "none",
         }}
@@ -482,7 +483,25 @@ const SurveyBody = () => {
       <div
         style={{
           display:
-            q3 === "marise" && (q11 === "yes" || q11 === "no")
+            q3 === "marise" && (q11 === "yes" || q11 === "no" || q6 === "no")
+              ? "block"
+              : "none",
+        }}
+        className="mt-3"
+      >
+        <h5>
+          আপনার প্রিয় ব্র্যান্ড মেরিস এখনও ৪ টাকা শলাকা একই উন্নত স্বাদে। মেরিসে
+          এর সাথে থাকার জন্য আপনাকে ধন্যবাদ।
+        </h5>
+        <br />
+        <button onClick={handleSubmit} className="btn btn-danger">
+          Submit Survey
+        </button>
+      </div>
+      <div
+        style={{
+          display:
+            q3 === "marise" && q6 === "yes" && q7 === "others"
               ? "block"
               : "none",
         }}
