@@ -117,13 +117,15 @@ const SurveyBody = () => {
       >
         <h6>
           ১.আসসালামুআলাইকুম, আমি <b>{agent}</b> বলছি একটি সিগারেট জরীপ কোম্পানি
-          থেকে। আপনি কি <b>{consumer?.r_name}</b> স্যার বলছেন?
+          থেকে।আপনি কি <b>{consumer?.r_name}</b> স্যার বলছেন? আপনার কি কিছুক্ষন
+          কথা বলার সময় হবে ?
         </h6>
         <Form.Group onChange={q1value} as={Row}>
           <Form.Control as="select" className="w-50 ml-3">
             <option>...</option>
             <option value="yes">হ্যাঁ</option>
             <option value="no">না</option>
+            <option value="busy">ব্যাস্ত</option>
           </Form.Control>
         </Form.Group>
       </div>
@@ -221,26 +223,7 @@ const SurveyBody = () => {
             q4 === "2days" ||
             q4 === "3days" ||
             q4 === "4days" ||
-            q4 === "5days" ||
-            q4 === "6days" ||
-            q4 === "7days" ||
-            q4 === "8days" ||
-            q4 === "9days" ||
-            q4 === "10days" ||
-            q4 === "11days" ||
-            q4 === "12days" ||
-            q4 === "13days" ||
-            q4 === "14days" ||
-            q4 === "15days" ||
-            q4 === "3week" ||
-            q4 === "1month" ||
-            q4 === "2month" ||
-            q4 === "3month" ||
-            q4 === "4month" ||
-            q4 === "5month" ||
-            q4 === "6month" ||
-            q4 === "1year" ||
-            q4 === "1yearplus"
+            q4 === "5days"
               ? "block"
               : "none",
         }}
@@ -259,10 +242,47 @@ const SurveyBody = () => {
             <option value="real">রিয়েল</option>
             <option value="royals">রয়েলস</option>
             <option value="others">অন্যান্য</option>
+            <option value="nonSmoker">Non Smoker</option>
           </Form.Control>
         </Form.Group>
       </div>
-      <div style={{ display: q5 === null ? "none" : "block" }} className="mt-2">
+      <div
+        style={{
+          display:
+            q4 === "6days" ||
+            q4 === "7days" ||
+            q4 === "8days" ||
+            q4 === "9days" ||
+            q4 === "10days" ||
+            q4 === "11days" ||
+            q4 === "12days" ||
+            q4 === "13days" ||
+            q4 === "14days" ||
+            q4 === "15days" ||
+            q4 === "3week" ||
+            q4 === "1month" ||
+            q4 === "2month" ||
+            q4 === "3month" ||
+            q4 === "4month" ||
+            q4 === "5month" ||
+            q4 === "6month" ||
+            q4 === "1year" ||
+            q4 === "1yearplus" ||
+            q5 === "marise" ||
+            q5 === "derby" ||
+            q5 === "pilot" ||
+            q5 === "hollywood" ||
+            q5 === "sheikh" ||
+            q5 === "k2" ||
+            q5 === "real" ||
+            q5 === "royals" ||
+            q5 === "others" ||
+            q5 === "nonSmoker"
+              ? "block"
+              : "none",
+        }}
+        className="mt-2"
+      >
         <h6>
           ৬.স্যার গতকাল কি কোন সিগারেট কোম্পানির প্রতিনিধি আপনার কাছে এসেছিল?{" "}
           <b>({consumer?.data_date})</b>
@@ -293,7 +313,10 @@ const SurveyBody = () => {
           display:
             q3 === "marise" &&
             q7 === "marise" &&
-            (q4 === "1days" || q4 === "2days" || q4 === "3days"||q4 === "4days")
+            (q4 === "1days" ||
+              q4 === "2days" ||
+              q4 === "3days" ||
+              q4 === "4days")
               ? "block"
               : "none",
         }}
@@ -349,6 +372,7 @@ const SurveyBody = () => {
       <div
         style={{
           display:
+            q9 === "0" ||
             q9 === "1" ||
             q9 === "2" ||
             q9 === "3" ||
@@ -401,13 +425,64 @@ const SurveyBody = () => {
       <div
         style={{
           display:
-            q1 === "no" ||
-            q2 === "no" ||
-            q6 == "no" ||
-            q7 === "others" ||
-            q9 === "0" ||
-            q11 === "yes" ||
-            q11 === "no"
+            q1 === "no" || q1 === "busy" || q2 === "no" ? "block" : "none",
+        }}
+        className="mt-3"
+      >
+        <h5>আমাদের কে সময় দেয়ার জন্য আপনাকে ধন্যবাদ</h5>
+        <br />
+        <button onClick={handleSubmit} className="btn btn-danger">
+          Submit Survey
+        </button>
+      </div>
+      <div
+        style={{
+          display:
+            ((q3 === "derby" ||
+              q3 === "pilot" ||
+              q3 === "hollywood" ||
+              q3 === "k2" ||
+              q3 === "real" ||
+              q3 === "sheikh" ||
+              q3 === "royals" ||
+              q3 === "others") &&
+              q6 === "no") ||
+            ((q3 === "derby" ||
+              q3 === "pilot" ||
+              q3 === "hollywood" ||
+              q3 === "k2" ||
+              q3 === "real" ||
+              q3 === "sheikh" ||
+              q3 === "royals" ||
+              q3 === "others") &&
+              q7 === "others") ||
+            ((q3 === "derby" ||
+              q3 === "pilot" ||
+              q3 === "hollywood" ||
+              q3 === "k2" ||
+              q3 === "real" ||
+              q3 === "sheikh" ||
+              q3 === "royals" ||
+              q3 === "others") &&
+              (q11 === "yes" || q11 === "no"))
+              ? "block"
+              : "none",
+        }}
+        className="mt-3"
+      >
+        <h5>
+          বাংলাদেশের সর্বাধিক জনপ্রিয় ব্র্যান্ড মেরিস এখনও ৪ টাকা শলাকা একই
+          উন্নত স্বাদে। আমাদের সাথে থাকার জন্য আপনাকে ধন্যবাদ।
+        </h5>
+        <br />
+        <button onClick={handleSubmit} className="btn btn-danger">
+          Submit Survey
+        </button>
+      </div>
+      <div
+        style={{
+          display:
+            q3 === "marise" && (q11 === "yes" || q11 === "no")
               ? "block"
               : "none",
         }}
