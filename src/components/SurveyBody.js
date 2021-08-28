@@ -218,12 +218,7 @@ const SurveyBody = () => {
       <div
         style={{
           display:
-            q4 === "0days" ||
-            q4 === "1days" ||
-            q4 === "2days" ||
-            q4 === "3days" ||
-            q4 === "4days" ||
-            q4 === "5days"
+            q4 === "0days" || q4 === "1days" || q4 === "2days" || q4 === "3days"
               ? "block"
               : "none",
         }}
@@ -249,6 +244,8 @@ const SurveyBody = () => {
       <div
         style={{
           display:
+            q4 === "4days" ||
+            q4 === "5days" ||
             q4 === "6days" ||
             q4 === "7days" ||
             q4 === "8days" ||
@@ -316,11 +313,7 @@ const SurveyBody = () => {
           display:
             q3 === "marise" &&
             q7 === "marise" &&
-            (q4 === "1days" ||
-              q4 === "2days" ||
-              q4 === "3days" ||
-              q4 === "4days" ||
-              q4 === "5days")
+            (q4 === "1days" || q4 === "2days" || q4 === "3days")
               ? "block"
               : "none",
         }}
