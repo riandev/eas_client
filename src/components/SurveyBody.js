@@ -308,7 +308,7 @@ const SurveyBody = () => {
           </Form.Control>
         </Form.Group>
       </div>
-      <div
+      {/* <div
         style={{
           display:
             q3 === "marise" &&
@@ -327,22 +327,11 @@ const SurveyBody = () => {
             <option value="no">না</option>
           </Form.Control>
         </Form.Group>
-      </div>
+      </div> */}
       <div>
         <div
           style={{
-            display:
-              ((q3 === "derby" ||
-                q3 === "marise" ||
-                q3 === "pilot" ||
-                q3 === "hollywood" ||
-                q3 === "k2" ||
-                q3 === "real" ||
-                q3 === "sheikh" ||
-                q3 === "royals" ||
-                q3 === "others") &&
-                (q7 === "marise" ? "block" : "none")) ||
-              (q8 === "yes" || q8 === "no" ? "block" : "none"),
+            display: q7 === "marise" ? "block" : "none",
           }}
           className="mt-2"
         >
